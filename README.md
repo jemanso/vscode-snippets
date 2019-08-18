@@ -9,7 +9,14 @@ This extension is based on [Snippet Guide](https://code.visualstudio.com/api/lan
 
 - [`contributes.snippets`](https://code.visualstudio.com/api/references/contribution-points#contributes.snippets)
 
-### Javascript & Typescript
+### Install
 
-- Run the `Run Extension` target in the Debug View
-- When you type `log` in a JavaScript file, you would see the snippet `Print to console`.
+```bash
+code --install-extension vscode-snippets-0.0.1.vsix
+```
+
+### Debuging
+
+- run the `Run Extension` target in the Debug View
+- create a Javascript file
+- When you type `prom` in a JavaScript file, you would see the snippet `new Promise`.
