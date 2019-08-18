@@ -1,0 +1,30 @@
+{
+	"name": "vscode-snippets",
+	"displayName": "Snippet Sample",
+	"description": "Snippet Sample",
+	"version": "0.0.1",
+	"publisher": "jemanso",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.28.0"
+	},
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/jemanso/vscode-snippets.git"
+  },
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./src/javascript.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/typescript.json"
+			}
+		]
+	}
+}

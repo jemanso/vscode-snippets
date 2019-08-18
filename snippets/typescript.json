@@ -1,0 +1,220 @@
+{
+	"Object.defineProperty": {
+		"prefix": "defineProperty",
+		"body": [
+			"Object.defineProperty(${1:this}, '${2:_parent}', { value: ${2:_parent}, writable: ${3:true}, enumerable: false, configurable: false })"
+		],
+		"description": "Define a hidden property that is not enumerable"
+	},
+	"const path = require('path')": {
+		"prefix": "path",
+		"body": [
+			"const path = require('path')",
+			"const ${1:MyClass} = require(path.join(__dirname, '${1:MyClass}.js'))"
+		],
+		"description": "print message in the stdout"
+	},
+	"console.log": {
+		"prefix": "log",
+		"body": [
+			"console.log(`$0`)"
+		],
+		"description": "print message in the stdout"
+	},
+	"module.exports": {
+		"prefix": "modexp",
+		"body": [
+			"module.exports = ${1:MyClass}"
+		],
+		"description": "node.js module.exports"
+	},
+	"new Promise": {
+		"prefix": "prom",
+		"body": [
+			"new Promise((resolve, reject) => {",
+			"\t$0",
+			"})"
+		],
+		"description": "new Promise"
+	},
+	"eventEmitter": {
+		"prefix":"eventEmitter",
+		"body": [
+			"const { EventEmitter } = require('events')\n$0"
+		],
+		"description": "const { EventEmitter } = require('events')"
+	},
+	"class MyClass": {
+		"prefix": "class",
+		"body": [
+			"class ${1:MyClass} {",
+			"\tconstructor (${2}) {",
+			"\t\tsuper(${2})",
+			"\t\tthis.name = ''",
+			"\t\t$0",
+			"\t}",
+			"\tmethod () {",
+			"\t\tsuper.method()",
+			"\t}",
+			"}"
+		],
+		"description": "ES6 Class Declaration"
+	},
+	"class MyClass extends Array": {
+		"prefix": "classExtendsArray",
+		"body": [
+			"class ${1:MyClass} extends ${2:Array} {",
+			"\tconstructor (${3:args}) {",
+			"\t\tsuper(${3:args})",
+			"\t\tthis.name = $0",
+			"\t}",
+			"}"
+		],
+		"description": "class extends Array"
+	},
+	"class EventEmitter": {
+		"prefix":"classExtendsEmitter",
+		"body": [
+			"const { EventEmitter } = require('events')",
+			"class ${1:MyClass} extends ${2:EventEmitter} {",
+			"\tconstructor (${3:args}) {",
+			"\t\tsuper(${3:args})",
+			"\t\tthis.name = ''$0",
+			"\t\tthis.emit('created')",
+			"\t}",
+			"}\n\n",
+			"module.exports = ${1:MyClass}"
+		],
+		"description": "class extends EventEmitter"
+	},
+	"class MyClass extends Transform": {
+		"prefix": "classTransform",
+		"body": [
+			"const { Transform } = require('stream')\n",
+			"class ${1:MyClass} extends Transform {",
+			"\tconstructor () {",
+			"\t\tsuper({",
+			"\t\t\treadableObjectMode: true,",
+			"\t\t\twritableObjectMode: true",
+			"\t\t})",
+			"\t\tthis.name = ''",
+			"\t}",
+			"\t_transform (chunk, encoding, callback) {",
+			"\t\t$0",
+			"\t}",
+			"}\n",
+			"module.exports = ${1:MyClass}\n"
+		],
+		"description": "ES6 Class Declaration with Extends"
+	},
+	"tools + console": {
+		"prefix": "tools",
+		"body": [
+			"const tools = require('@modules/tools')\n",
+			"// REPL CONSOLE",
+			"//  - use the shell argument \"--no-console\" when running this script as a service",
+			"tools.console.open('${1:myapp}', { tools }, 'Welcome to ${1:myapp} service!')\n",
+		],
+		"description": "Tools module"
+	},
+	"for": {
+		"prefix": "for",
+		"body": [
+			"for (let ${1:i} = 0; ${1:i} < ${2:array}.length; ${1:i}++) {",
+			"\tconst ${3:item} = ${2:array}[${1:i}]",
+			"\t${0}",
+			"}"
+		],
+		"description": "Iterating using index from 0 to N"
+	},
+	"for down": {
+		"prefix": "fordown",
+		"body": [
+			"for (let ${1:i} = ${2:array}.length - 1; ${1:i} <= 0; ${1:i}--) {",
+			"\tconst ${3:item} = ${2:array}[${1:i}]",
+			"\t${0}",
+			"}"
+		],
+		"description": "Iterating using index N down to 0"
+	},
+	"new Map() using forEach()": {
+		"prefix": "map",
+		"body": [
+			"const ${1:mapObj} = new Map()",
+			"${1:mapObj}.set(1, 'firstItem')",
+			"${1:mapObj}.set(2, { name: 'secondItem' })",
+			"${1:mapObj}.forEach((value, key, mapObj) => {",
+			"\tconsole.log(`key \\${key} and value \\${value}`)",
+			"\t${0}",
+			"})"
+		],
+		"description": "new Map() using forEach()"
+	},
+	"new Map() using next()": {
+		"prefix": "mapnext",
+		"body": [
+			"const ${1:mapObj} = new Map()",
+			"${1:mapObj}.set(1, 'firstItem')",
+			"${1:mapObj}.set(2, { name: 'secondItem' })",			
+			"const ${2:list} = ${1:mapObj}.entries() // mp.keys(), mp.values()",
+			"let ${3:elem} = ${2:list}.next()",
+			"while (!${3:elem}.done) {",
+			"\tconsole.log(${3:elem}.value[0]) // key",
+			"\tconsole.log(${3:elem}.value[1]) // value",
+			"\t${0}",
+			"\t${3:elem} = ${2:list}.next()",
+			"}"
+		],
+		"description": "new Map() using next()"
+	},
+	"symbol": {
+		"prefix": "symbol",
+		"body": "const ${1:mysym} = Symbol('${2:MySymbol}')\n${0}",
+		"description": "Symbol in local scope"
+	},
+	"symbol global": {
+		"prefix": "symglob",
+		"body": [
+			"const ${1:mysym} = Symbol.for('${2:MySymbol}')",
+		  "console.log(Symbol.keyFor(${1:mysym})",
+			"${0}"
+		],
+		"description": "Search or created a symbol in the global symbol registry with this key"
+	},
+	"sort function": {
+		"prefix":"sortfunc",
+		"body": [
+			"function ${1:sortBy} (a, b) {",
+			"\tif (a < b) { return -1 }",
+			"\tif (a > b) { return 1 }",
+			"\treturn 0",
+			"}",
+			"${0}"
+		]
+	},
+	"sort by field func": {
+		"prefix": "sortbyfield",
+		"body": [
+			"function ${1:sortBy} (a, b) {",
+			"\tif (a.${2:fieldName} < b.${2:fieldName}) { return -1 }",
+			"\tif (a.${2:fieldName} > b.${2:fieldName}) { return 1 }",
+			"\treturn 0",
+			"}",
+			"${0}"
+		]
+	},
+	"sort by URI func": {
+		"prefix": "sortbyuri",
+		"body": [
+			"arr.sort(${1:sortBy}.bind({uri:'/_wd/dtime'})",
+			"function ${1:sortBy} (a, b) {",
+			"\tlet a1 = tools.json.getVal(a, this.uri)",
+			"\tlet b1 = tools.json.getVal(b, this.uri)",
+			"\tif (a1 < b1) { return -1 }",
+			"\tif (a1 > b1) { return 1 }",
+			"\treturn 0",
+			"}",
+			"${0}"
+		]
+	}
+}
