@@ -1,7 +1,7 @@
 {
 	"name": "vscode-snippets",
-	"displayName": "Snippet Sample",
-	"description": "Snippet Sample",
+	"displayName": "Smart Snippets",
+	"description": "Smart Snippets for smart developers",
 	"version": "0.0.1",
 	"publisher": "jemanso",
 	"license": "MIT",
@@ -11,7 +11,12 @@
 	"repository": {
     "type": "git",
     "url": "https://github.com/jemanso/vscode-snippets.git"
-  },
+	},
+	"keywords": [
+    "snippets",
+    "javascript",
+    "typescript"
+  ],
 	"categories": [
 		"Snippets"
 	],
@@ -19,11 +24,11 @@
 		"snippets": [
 			{
 				"language": "javascript",
-				"path": "./src/javascript.json"
+				"path": "./snippets/javascript.json"
 			},
 			{
-				"language": "javascript",
-				"path": "./src/typescript.json"
+				"language": "typescript",
+				"path": "./snippets/typescript.json"
 			}
 		]
 	}
